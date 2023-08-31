@@ -30,6 +30,12 @@ load(
     "upb_proto_reflection_library",
 )
 
+# begin:google_only
+# load("//bazel:build_defs.bzl", "upb_kt_native_interop_hint")
+#
+# upb_kt_native_interop_hint(name = "accessors_aspect_hint")
+# end:google_only
+
 cc_library(
     name = "accessors",
     srcs = [
@@ -119,6 +125,10 @@ cc_library(
     ],
 )
 
+# begin:google_only
+# upb_kt_native_interop_hint(name = "message_aspect_hint")
+# end:google_only
+
 cc_library(
     name = "internal_types",
     hdrs = [
@@ -146,6 +156,18 @@ cc_library(
         "//:port",
     ],
 )
+
+# begin:google_only
+# upb_kt_native_interop_hint(
+#     name = "promote_aspect_hint",
+#     strict_enums = [
+#         "upb_FindUnknown_Status",
+#         "upb_GetExtension_Status",
+#         "upb_GetExtensionAsBytes_Status",
+#         "upb_UnknownToMessage_Status",
+#     ],
+# )
+# end:google_only
 
 cc_library(
     name = "promote",
