@@ -501,6 +501,7 @@ cc_library(
         "service.h",
         "text_format.h",
         "unknown_field_set.h",
+        "versions.h",
         "wire_format.h",
     ],
     copts = COPTS,
